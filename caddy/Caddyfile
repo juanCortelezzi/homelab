@@ -14,6 +14,12 @@ https://*.boole.site:443 {
 	}
 
 
+  @test host test.boole.site
+  handle @test {
+    respond "testing route!"
+  }
+
+
   @nextcloud host cloud.boole.site
   handle @nextcloud {
     reverse_proxy localhost:11000
