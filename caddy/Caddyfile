@@ -19,6 +19,15 @@ https://*.boole.site:443 {
     reverse_proxy localhost:11000
   }
 
+  @vaultwarden host vault.boole.site
+  handle @vaultwarden {
+    reverse_proxy localhost:4000 {
+      # Send the true remote IP to Rocket, so that vaultwarden can put this in the
+      # log, so that fail2ban can ban the correct IP.
+      header_up X-Real-IP {remote_host}
+    }
+  }
+
 
 	# Fallback for otherwise unhandled domains
 	handle {
