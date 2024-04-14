@@ -1,4 +1,3 @@
-
 services:
   immich-server:
     container_name: immich_server
