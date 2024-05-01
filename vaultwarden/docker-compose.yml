@@ -8,4 +8,4 @@ services:
     environment:
       - DOMAIN=https://vaultwarden.boole.store
     volumes:
-      - ./data:/data
+      - ~/Documents/homelab-data/vaultwarden/data:/data

@@ -8,8 +8,8 @@ services:
       - TZ=UTC
     volumes:
       - ./config:/etc/bind:ro
-      - ./cache:/var/cache/bind
-      - ./records:/var/lib/bind
+      - ~/Documents/homelab-data/bind9/cache:/var/cache/bind
+      - ~/Documents/homelab-data/bind9/records:/var/lib/bind
     ports:
       - "53:53/tcp"
       - "53:53/udp"
