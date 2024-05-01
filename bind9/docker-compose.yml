@@ -9,7 +9,6 @@ services:
     volumes:
       - ./config:/etc/bind:ro
       - ~/Documents/homelab-data/bind9/cache:/var/cache/bind
-      - ~/Documents/homelab-data/bind9/records:/var/lib/bind
     ports:
       - "53:53/tcp"
       - "53:53/udp"
