@@ -11,5 +11,5 @@ services:
       - ./cache:/var/cache/bind
       - ./records:/var/lib/bind
     ports:
-      - "192.168.1.69:53:53/tcp"
-      - "192.168.1.69:53:53/udp"
+      - "53:53/tcp"
+      - "53:53/udp"

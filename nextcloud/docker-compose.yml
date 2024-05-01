@@ -6,8 +6,14 @@ services:
     ports:
       - "3000:8080"
     environment:
-      - APACHE_PORT=11000
-      - APACHE_IP_BINDING=127.0.0.1
+      APACHE_PORT: 11000
+      APACHE_IP_BINDING: 127.0.0.1
+      # - NEXTCLOUD_STARTUP_APPS: "files contacts calendar deck -photos -memories -notes -activity -tasks"
+      NEXTCLOUD_STARTUP_APPS: files contacts calendar deck -photos -memories -notes -activity -tasks
+      NEXTCLOUD_ADDITIONAL_APKS: imagemagick exiftool
+      NEXTCLOUD_ADDITIONAL_PHP_EXTENSIONS: imagick
+      # this is used for memories and hardware transcoding
+      NEXTCLOUD_ENABLE_DRI_DEVICE: true
     volumes:
       - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro

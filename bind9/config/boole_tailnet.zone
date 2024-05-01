@@ -1,0 +1,19 @@
+$TTL 2d
+$ORIGIN boole.store.
+
+@   IN    SOA   ns.boole.store.    changeme.boole.store (
+  20240217; serial
+  12h; refresh
+  15m; retry
+  3w; expire
+  2h; min ttl
+)
+
+    IN    NS    ns.boole.store. 
+
+ns	IN	A	100.65.167.108
+
+; my dns from now on
+
+nc	IN	A	170.187.240.169
+*	IN	A	100.65.167.108

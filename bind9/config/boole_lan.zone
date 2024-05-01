@@ -11,8 +11,9 @@ $ORIGIN boole.store.
 
     IN    NS    ns.boole.store. 
 
-ns    IN    A   192.168.1.69
+ns	IN	A	192.168.1.69
 
 ; my dns from now on
 
-*   IN    A       192.168.1.69
+nc	IN	A	170.187.240.169
+*	IN	A	192.168.1.99
