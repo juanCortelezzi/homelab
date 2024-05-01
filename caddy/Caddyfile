@@ -33,6 +33,12 @@ https://*.boole.store:443 {
   }
 
 
+  @syncthing host sync.boole.store
+  handle @syncthing {
+    reverse_proxy localhost:8384
+  }
+
+
   @vaultwarden host vault.boole.store
   handle @vaultwarden {
     reverse_proxy localhost:4000 {
