@@ -1,13 +1,19 @@
 services:
   caddy:
     image: local/caddy:latest
+    build: .
     restart: unless-stopped
     container_name: caddy
     network_mode: "host"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - ~/Documents/homelab-data/caddy/config:/config
-      - ~/Documents/homelab-data/caddy/certs:/certs
-      - ~/Documents/homelab-data/caddy/data:/data
+      - caddy_config:/config
+      - caddy_certs:/certs
+      - caddy_data:/data
     env_file:
       - .env
+
+volumes:
+  caddy_config:
+  caddy_certs:
+  caddy_data:

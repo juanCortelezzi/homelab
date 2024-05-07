@@ -6,4 +6,7 @@ services:
     ports:
       - 4150:3001
     volumes:
-      - ~/Documents/homelab-data/kuma/data:/app/data
+      - kuma_data:/app/data
+
+volumes:
+  kuma_data:

@@ -7,10 +7,18 @@ services:
       - PGID=1000
       - TZ=Pacific/Auckland
     volumes:
-      - ./config:/config
+      - syncthing_config:/config
+      - syncthing_data1:/data1
+      - syncthing_data2:/data2
+
     ports:
       - 8384:8384 # GUI
       - 22000:22000/tcp
       - 22000:22000/udp
       - 21027:21027/udp # Protocol discovery
     restart: unless-stopped
+
+volumes:
+  syncthing_config:
+  syncthing_data1:
+  syncthing_data2:
