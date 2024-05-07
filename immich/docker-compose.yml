@@ -1,5 +1,5 @@
 services:
-  immich-server:
+  immich_server:
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     command: ['start.sh', 'immich']
@@ -9,13 +9,13 @@ services:
     env_file:
       - .env
     ports:
-      - 2283:3001
+      - 4200:3001
     depends_on:
       - redis
       - database
     restart: unless-stopped
 
-  immich-microservices:
+  immich_microservices:
     container_name: immich_microservices
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     # extends: # uncomment this section for hardware acceleration - see https://immich.app/docs/features/hardware-transcoding
@@ -32,7 +32,7 @@ services:
       - database
     restart: unless-stopped
 
-  immich-machine-learning:
+  immich_machine_learning:
     container_name: immich_machine_learning
     # For hardware acceleration, add one of -[armnn, cuda, openvino] to the image tag.
     # Example tag: ${IMMICH_VERSION:-release}-cuda

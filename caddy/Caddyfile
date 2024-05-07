@@ -27,12 +27,6 @@ https://*.boole.store:443 {
   }
 
 
-  @immich host img.boole.store
-  handle @immich {
-    reverse_proxy localhost:2283
-  }
-
-
   @syncthing host sync.boole.store
   handle @syncthing {
     reverse_proxy localhost:8384
@@ -41,11 +35,23 @@ https://*.boole.store:443 {
 
   @vaultwarden host vault.boole.store
   handle @vaultwarden {
-    reverse_proxy localhost:4000 {
+    reverse_proxy localhost:4100 {
       # Send the true remote IP to Rocket, so that vaultwarden can put this in the
       # log, so that fail2ban can ban the correct IP.
       header_up X-Real-IP {remote_host}
     }
+  }
+
+
+  @kuma host uptime.boole.store
+  handle @kuma {
+    reverse_proxy localhost:4150
+  }
+
+
+  @immich host image.boole.store
+  handle @immich {
+    reverse_proxy localhost:4200
   }
 
 
