@@ -1,0 +1,9 @@
+services:
+  kuma:
+    image: louislam/uptime-kuma:1.23.13-alpine
+    restart: unless-stopped
+    container_name: kuma
+    ports:
+      - 4150:3001
+    volumes:
+      - ~/Documents/homelab-data/kuma/data:/app/data
