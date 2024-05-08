@@ -12,3 +12,4 @@ services:
 
 volumes:
   vaultwarden_data:
+    name: vaultwarden_data

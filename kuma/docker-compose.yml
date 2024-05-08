@@ -10,3 +10,4 @@ services:
 
 volumes:
   kuma_data:
+    name: kuma_data

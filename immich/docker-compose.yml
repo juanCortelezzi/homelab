@@ -64,5 +64,8 @@ services:
 
 volumes:
   immich_library:
+    name: immich_library
   immich_ml_cache:
+    name: immich_ml_cache
   immich_database:
+    name: immich_database

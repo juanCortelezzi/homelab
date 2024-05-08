@@ -15,5 +15,8 @@ services:
 
 volumes:
   caddy_config:
+    name: caddy_config
   caddy_certs:
+    name: caddy_certs
   caddy_data:
+    name: caddy_data

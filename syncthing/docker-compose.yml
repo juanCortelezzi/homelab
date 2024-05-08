@@ -20,5 +20,8 @@ services:
 
 volumes:
   syncthing_config:
+    name: syncthing_config
   syncthing_data1:
+    name: syncthing_data1
   syncthing_data2:
+    name: syncthing_data2
