@@ -45,7 +45,7 @@ https://*.boole.store:443 {
 
   @kuma host uptime.boole.store
   handle @kuma {
-    reverse_proxy localhost:4150
+    reverse_proxy 100.100.176.10:4150
   }
 
 
