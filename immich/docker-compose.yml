@@ -2,7 +2,7 @@ services:
   immich_server:
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
-    command: ['start.sh', 'immich']
+    command: ["start.sh", "immich"]
     volumes:
       - immich_library:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
@@ -21,7 +21,7 @@ services:
     # extends: # uncomment this section for hardware acceleration - see https://immich.app/docs/features/hardware-transcoding
     #   file: hwaccel.transcoding.yml
     #   service: cpu # set to one of [nvenc, quicksync, rkmpp, vaapi, vaapi-wsl] for accelerated transcoding
-    command: ['start.sh', 'microservices']
+    command: ["start.sh", "microservices"]
     restart: unless-stopped
     volumes:
       - immich_library:/usr/src/app/upload
