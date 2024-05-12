@@ -59,7 +59,7 @@
   },
   "machineLearning": {
     "enabled": false,
-    "url": "http://immich-machine-learning:3003",
+    "url": "http://immich_machine_learning:3003",
     "clip": {
       "enabled": true,
       "modelName": "ViT-B-32__openai"
@@ -139,5 +139,5 @@
   "server": {
     "externalDomain": "",
     "loginPageMessage": "Hallo, ich bin Immich."
-  },
+  }
 }
