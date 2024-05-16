@@ -1,62 +1,54 @@
 https://*.boole.store:443 {
-  log {
-    level INFO
-    output file /data/logs/acces.logs {
-      roll_size 10MB
-      roll_keep 10
-    }
-  }
+	log {
+		level INFO
+		output file /data/logs/acces.logs {
+			roll_size 10MB
+			roll_keep 10
+		}
+	}
 
+	tls {$EMAIL} {
+		dns cloudflare {$CF_API_TOKEN}
+		resolvers 1.1.1.1 1.0.0.1
+		# ca https://acme-staging-v02.api.letsencrypt.org/directory
+	}
 
-  tls {$EMAIL} {
-    dns cloudflare {$CF_API_TOKEN}
-    resolvers 1.1.1.1 1.0.0.1
-    # ca https://acme-staging-v02.api.letsencrypt.org/directory
-  }
+	@test host test.boole.store
+	handle @test {
+		respond "testing route!"
+	}
 
+	@nextcloud host cloud.boole.store
+	handle @nextcloud {
+		reverse_proxy localhost:11000
+	}
 
-  @test host test.boole.store
-  handle @test {
-    respond "testing route!"
-  }
+	@syncthing host sync.boole.store
+	handle @syncthing {
+		reverse_proxy localhost:8384
+	}
 
+	@vaultwarden host vault.boole.store
+	handle @vaultwarden {
+		reverse_proxy localhost:4100 {
+			# Send the true remote IP to Rocket, so that vaultwarden can put this in the
+			# log, so that fail2ban can ban the correct IP.
+			header_up X-Real-IP {remote_host}
+		}
+	}
 
-  @nextcloud host cloud.boole.store
-  handle @nextcloud {
-    reverse_proxy localhost:11000
-  }
+	@kuma host uptime.boole.store
+	handle @kuma {
+		reverse_proxy 100.100.176.10:4150
+	}
 
+	@immich host photos.boole.store
+	handle @immich {
+		reverse_proxy localhost:4200
+	}
 
-  @syncthing host sync.boole.store
-  handle @syncthing {
-    reverse_proxy localhost:8384
-  }
-
-
-  @vaultwarden host vault.boole.store
-  handle @vaultwarden {
-    reverse_proxy localhost:4100 {
-      # Send the true remote IP to Rocket, so that vaultwarden can put this in the
-      # log, so that fail2ban can ban the correct IP.
-      header_up X-Real-IP {remote_host}
-    }
-  }
-
-
-  @kuma host uptime.boole.store
-  handle @kuma {
-    reverse_proxy 100.100.176.10:4150
-  }
-
-
-  @immich host photos.boole.store
-  handle @immich {
-    reverse_proxy localhost:4200
-  }
-
-
-  # Fallback for otherwise unhandled domains
-  handle {
-    abort
-  }
+	# Fallback for otherwise unhandled domains
+	handle {
+		abort
+	}
 }
