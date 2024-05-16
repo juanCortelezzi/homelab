@@ -51,6 +51,9 @@
     },
     "videoConversion": {
       "concurrency": 1
+    },
+    "notifications": {
+      "concurrency": 5
     }
   },
   "logging": {
@@ -58,7 +61,7 @@
     "level": "log"
   },
   "machineLearning": {
-    "enabled": false,
+    "enabled": true,
     "url": "http://immich_machine_learning:3003",
     "clip": {
       "enabled": true,
@@ -68,7 +71,7 @@
       "enabled": true,
       "modelName": "buffalo_l",
       "minScore": 0.7,
-      "maxDistance": 0.6,
+      "maxDistance": 0.5,
       "minFaces": 3
     }
   },
@@ -81,20 +84,20 @@
     "enabled": true
   },
   "oauth": {
-    "enabled": false,
-    "issuerUrl": "",
+    "autoLaunch": false,
+    "autoRegister": true,
+    "buttonText": "Login with OAuth",
     "clientId": "",
     "clientSecret": "",
+    "defaultStorageQuota": 0,
+    "enabled": false,
+    "issuerUrl": "",
+    "mobileOverrideEnabled": false,
+    "mobileRedirectUri": "",
     "scope": "openid email profile",
     "signingAlgorithm": "RS256",
     "storageLabelClaim": "preferred_username",
-    "storageQuotaClaim": "immich_quota",
-    "defaultStorageQuota": 0,
-    "buttonText": "Login with OAuth",
-    "autoRegister": true,
-    "autoLaunch": false,
-    "mobileOverrideEnabled": false,
-    "mobileRedirectUri": ""
+    "storageQuotaClaim": "immich_quota"
   },
   "passwordLogin": {
     "enabled": true
@@ -110,7 +113,8 @@
     "previewFormat": "jpeg",
     "previewSize": 1440,
     "quality": 80,
-    "colorspace": "p3"
+    "colorspace": "p3",
+    "extractEmbedded": false
   },
   "newVersionCheck": {
     "enabled": true
@@ -122,22 +126,34 @@
   "theme": {
     "customCss": ""
   },
-  "user": {
-    "deleteDelay": 7
-  },
   "library": {
     "scan": {
       "enabled": true,
       "cronExpression": "0 0 * * *"
     },
     "watch": {
-      "enabled": false,
-      "usePolling": false,
-      "interval": 10000
+      "enabled": false
     }
   },
   "server": {
-    "externalDomain": "",
-    "loginPageMessage": "Hallo, ich bin Immich."
+    "externalDomain": "https://photos.boole.store",
+    "loginPageMessage": "Hallo, ich bin Immich"
+  },
+  "notifications": {
+    "smtp": {
+      "enabled": false,
+      "from": "",
+      "replyTo": "",
+      "transport": {
+        "ignoreCert": false,
+        "host": "",
+        "port": 587,
+        "username": "",
+        "password": ""
+      }
+    }
+  },
+  "user": {
+    "deleteDelay": 7
   }
 }

@@ -49,7 +49,7 @@ https://*.boole.store:443 {
   }
 
 
-  @immich host image.boole.store
+  @immich host photos.boole.store
   handle @immich {
     reverse_proxy localhost:4200
   }
