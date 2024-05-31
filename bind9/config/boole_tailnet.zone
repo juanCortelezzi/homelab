@@ -15,5 +15,4 @@ ns	IN	A	100.65.167.108
 
 ; my dns from now on
 
-nc	IN	A	170.187.240.169
 *	IN	A	100.65.167.108

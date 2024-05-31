@@ -15,5 +15,4 @@ ns	IN	A	192.168.1.69
 
 ; my dns from now on
 
-nc	IN	A	170.187.240.169
 *	IN	A	192.168.1.99
