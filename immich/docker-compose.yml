@@ -50,6 +50,8 @@ services:
     container_name: immich_redis
     image: registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5
     restart: unless-stopped
+    volumes:
+      - immich_redis:/data
 
   database:
     container_name: immich_postgres
@@ -69,3 +71,5 @@ volumes:
     name: immich_ml_cache
   immich_database:
     name: immich_database
+  immich_redis:
+    name: immich_redis
