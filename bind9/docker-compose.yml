@@ -9,6 +9,7 @@ services:
     volumes:
       - ./config:/etc/bind:ro
       - bind9_cache:/var/cache/bind
+      - bind9_records:/var/lib/bind
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -16,3 +17,5 @@ services:
 volumes:
   bind9_cache:
     name: bind9_cache
+  bind9_records:
+    name: bind9_records
