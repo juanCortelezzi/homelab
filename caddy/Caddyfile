@@ -23,11 +23,6 @@ https://*.boole.store:443 {
 		reverse_proxy localhost:11000
 	}
 
-	@syncthing host sync.boole.store
-	handle @syncthing {
-		reverse_proxy localhost:8384
-	}
-
 	@vaultwarden host vault.boole.store
 	handle @vaultwarden {
 		reverse_proxy localhost:4100 {
@@ -49,9 +44,14 @@ https://*.boole.store:443 {
 
 	@hole host hole.boole.store
 	handle @hole {
-    @not_admin not path /admin/*
+		@not_admin not path /admin/*
 		rewrite @not_admin /admin{uri}
 		reverse_proxy localhost:4250
+	}
+
+	@syncthing host sync.boole.store
+	handle @syncthing {
+		reverse_proxy localhost:4300
 	}
 
 	# Fallback for otherwise unhandled domains

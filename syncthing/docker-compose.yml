@@ -12,7 +12,7 @@ services:
       - syncthing_data2:/data2
 
     ports:
-      - 4250:8384 # GUI
+      - 4300:8384 # GUI
       - 22000:22000/tcp
       - 22000:22000/udp
       - 21027:21027/udp # Protocol discovery
