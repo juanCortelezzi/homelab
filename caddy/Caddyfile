@@ -47,6 +47,13 @@ https://*.boole.store:443 {
 		reverse_proxy localhost:4200
 	}
 
+	@hole host hole.boole.store
+	handle @hole {
+    @not_admin not path /admin/*
+		rewrite @not_admin /admin{uri}
+		reverse_proxy localhost:4250
+	}
+
 	# Fallback for otherwise unhandled domains
 	handle {
 		abort
