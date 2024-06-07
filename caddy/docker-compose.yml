@@ -1,6 +1,5 @@
 services:
   caddy:
-    image: local/caddy:latest
     build: .
     restart: unless-stopped
     container_name: caddy
