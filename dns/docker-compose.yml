@@ -1,11 +1,27 @@
 services:
+  bind9:
+    # image: ubuntu/bind9:latest
+    build: ./bind
+    restart: unless-stopped
+    container_name: bind9
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+    environment:
+      - BIND9_USER=root
+      - TZ=Pacific/Auckland
+      - KOKAN_FORWARDER=pihole
+    volumes:
+      - ./bind/config:/etc/bind_templates:ro
+      - bind9_config:/etc/bind
+      - bind9_cache:/var/cache/bind
+      - bind9_records:/var/lib/bind
+
   pihole:
     container_name: pihole
     image: pihole/pihole:2024.05.0
     restart: unless-stopped
     ports:
-      - 53:53/tcp
-      - 53:53/udp
       - 4250:80/tcp
     volumes:
       - pihole_etc:/etc/pihole
@@ -14,30 +30,19 @@ services:
       TZ: Pacific/Auckland
       WEBPASSWORD: password
       WEBTHEME: default-dark
-      PIHOLE_DNS_: bind9
+      PIHOLE_DNS_: 1.1.1.1;1.0.0.1;8.8.8.8
       DHCP_ACTIVE: false
       DNSMASQ_LISTENING: all # escape docker network bridge
       CUSTOM_CACHE_SIZE: 10000
 
-  bind9:
-    image: ubuntu/bind9:latest
-    restart: unless-stopped
-    container_name: bind9
-    environment:
-      - BIND9_USER=root
-      - TZ=Pacific/Auckland
-    volumes:
-      - ./bind_config:/etc/bind:ro
-      - bind9_cache:/var/cache/bind
-      - bind9_records:/var/lib/bind
-
 volumes:
-  pihole_etc:
-    name: pihole_etc
-  pihole_dnsmasq:
-    name: pihole_dnsmasq
-
+  bind9_config:
+    name: bind9_config
   bind9_cache:
     name: bind9_cache
   bind9_records:
     name: bind9_records
+  pihole_etc:
+    name: pihole_etc
+  pihole_dnsmasq:
+    name: pihole_dnsmasq

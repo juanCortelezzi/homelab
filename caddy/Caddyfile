@@ -44,8 +44,7 @@ https://*.boole.store:443 {
 
 	@hole host hole.boole.store
 	handle @hole {
-		@not_admin not path /admin/*
-		rewrite @not_admin /admin{uri}
+		redir / /admin
 		reverse_proxy localhost:4250
 	}
 
