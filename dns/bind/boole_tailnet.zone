@@ -1,7 +1,7 @@
 $TTL 2d
-$ORIGIN boole.store.
+$ORIGIN boole.site.
 
-@   IN    SOA   ns.boole.store.    changeme.boole.store (
+@   IN    SOA   ns.boole.site.    changeme.boole.site (
   20240217; serial
   12h; refresh
   15m; retry
@@ -9,7 +9,7 @@ $ORIGIN boole.store.
   2h; min ttl
 )
 
-    IN    NS    ns.boole.store. 
+    IN    NS    ns.boole.site. 
 
 ns	IN	A	100.65.167.108
 

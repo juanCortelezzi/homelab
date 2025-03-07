@@ -136,7 +136,7 @@
     }
   },
   "server": {
-    "externalDomain": "https://photos.boole.store",
+    "externalDomain": "https://photos.boole.site",
     "loginPageMessage": "Hallo, ich bin Immich"
   },
   "notifications": {
