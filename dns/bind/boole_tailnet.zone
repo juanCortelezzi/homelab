@@ -9,7 +9,7 @@ $ORIGIN boole.site.
   2h; min ttl
 )
 
-    IN    NS    ns.boole.site. 
+    IN    NS    ns.boole.site.
 
 ns	IN	A	100.65.167.108
 
