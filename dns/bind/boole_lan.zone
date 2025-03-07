@@ -9,7 +9,7 @@ $ORIGIN boole.store.
   2h; min ttl
 )
 
-    IN    NS    ns.boole.store. 
+    IN    NS    ns.boole.store.
 
 ns	IN	A	192.168.1.69
 
