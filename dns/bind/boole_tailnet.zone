@@ -15,4 +15,5 @@ ns	IN	A	100.65.167.108
 
 ; my dns from now on
 
-*	IN	A	100.65.167.108
+*	        IN	A	100.65.167.108
+*.testing	IN	A	127.0.0.1
