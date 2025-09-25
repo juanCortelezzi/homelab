@@ -1,9 +1,11 @@
+name: immich
+
 services:
   immich_server:
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     volumes:
-      - ./immich_volumes/immich_library:/usr/src/app/upload
+      - ./immich_volumes/immich_library:/data
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -21,7 +23,7 @@ services:
     image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
     restart: unless-stopped
     volumes:
-      - ./immich_volumes/immich_ml_cache:/cache
+      - ml_cache:/cache
     env_file:
       - .env
     healthcheck:
@@ -51,3 +53,6 @@ services:
     volumes:
       # Do not edit the next line. If you want to change the database storage location on your system, edit the value of DB_DATA_LOCATION in the .env file
       - ./immich_volumes/immich_database:/var/lib/postgresql/data
+
+volumes:
+  ml_cache:
