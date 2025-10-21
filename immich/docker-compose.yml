@@ -5,7 +5,7 @@ services:
     container_name: immich_server
     image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
     volumes:
-      - ./immich_volumes/immich_library:/data
+      - /mnt/truenas/immich/immich_library:/data
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -36,7 +36,7 @@ services:
     healthcheck:
       test: redis-cli ping || exit 1
     volumes:
-      - ./immich_volumes/immich_redis:/data
+      - /mnt/truenas/immich/immich_redis:/data
 
   database:
     container_name: immich_postgres
@@ -52,7 +52,7 @@ services:
       # DB_STORAGE_TYPE: 'HDD'
     volumes:
       # Do not edit the next line. If you want to change the database storage location on your system, edit the value of DB_DATA_LOCATION in the .env file
-      - ./immich_volumes/immich_database:/var/lib/postgresql/data
+      - /mnt/truenas/immich/immich_database:/var/lib/postgresql/data
 
 volumes:
   ml_cache:
