@@ -1,6 +1,6 @@
 services:
   nextcloud:
-    image: nextcloud/all-in-one:latest
+    image: ghcr.io/nextcloud-releases/all-in-one:latest
     restart: unless-stopped
     container_name: nextcloud-aio-mastercontainer
     ports:
