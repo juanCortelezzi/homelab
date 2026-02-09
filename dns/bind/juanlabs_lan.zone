@@ -1,7 +1,7 @@
 $TTL 2d
-$ORIGIN boole.site.
+$ORIGIN juanlabs.org.
 
-@   IN    SOA   ns.boole.site.    changeme.boole.site (
+@   IN    SOA   ns.juanlabs.org.    changeme.juanlabs.org (
   20240217; serial
   12h; refresh
   15m; retry
@@ -9,7 +9,7 @@ $ORIGIN boole.site.
   2h; min ttl
 )
 
-    IN    NS    ns.boole.site.
+    IN    NS    ns.juanlabs.org.
 
 ns	IN	A	192.168.1.69
 

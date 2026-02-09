@@ -136,7 +136,7 @@
     }
   },
   "server": {
-    "externalDomain": "https://photos.boole.site",
+    "externalDomain": "https://photos.juanlabs.org",
     "loginPageMessage": "Hallo, ich bin Immich"
   },
   "notifications": {

@@ -1,4 +1,4 @@
-https://*.boole.site:443 {
+https://*.juanlabs.org:443 {
 	log {
 		level INFO
 		output file /data/logs/acces.logs {
@@ -13,17 +13,17 @@ https://*.boole.site:443 {
 		# ca https://acme-staging-v02.api.letsencrypt.org/directory
 	}
 
-	@test host test.boole.site
+	@test host test.juanlabs.org
 	handle @test {
 		respond "testing route!"
 	}
 
-	@nextcloud host cloud.boole.site
+	@nextcloud host cloud.juanlabs.org
 	handle @nextcloud {
 		reverse_proxy localhost:11000
 	}
 
-	@vaultwarden host vault.boole.site
+	@vaultwarden host vault.juanlabs.org
 	handle @vaultwarden {
 		reverse_proxy localhost:4100 {
 			# Send the true remote IP to Rocket, so that vaultwarden can put this in the
@@ -32,23 +32,23 @@ https://*.boole.site:443 {
 		}
 	}
 
-	@kuma host uptime.boole.site
+	@kuma host uptime.juanlabs.org
 	handle @kuma {
 		reverse_proxy 100.100.176.10:4150
 	}
 
-	@immich host photos.boole.site
+	@immich host photos.juanlabs.org
 	handle @immich {
 		reverse_proxy localhost:4200
 	}
 
-	@hole host hole.boole.site
+	@hole host hole.juanlabs.org
 	handle @hole {
 		redir / /admin
 		reverse_proxy localhost:4250
 	}
 
-	@syncthing host sync.boole.site
+	@syncthing host sync.juanlabs.org
 	handle @syncthing {
 		reverse_proxy localhost:4300
 	}
