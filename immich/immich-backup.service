@@ -1,0 +1,9 @@
+[Unit]
+Description=Immich borg backup to TrueNAS
+Requires=docker.service
+After=docker.service network-online.target
+RequiresMountsFor=/mnt/truenas/immich
+
+[Service]
+Type=oneshot
+ExecStart=@SCRIPT@
