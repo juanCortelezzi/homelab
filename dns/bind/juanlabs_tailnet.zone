@@ -1,12 +1,12 @@
-$TTL 2d
+$TTL 1h
 $ORIGIN juanlabs.org.
 
 @   IN    SOA   ns.juanlabs.org.    changeme.juanlabs.org (
-  20240217; serial
+  2026090601; serial
   12h; refresh
   15m; retry
   3w; expire
-  2h; min ttl
+  1h; min ttl
 )
 
     IN    NS    ns.juanlabs.org.
