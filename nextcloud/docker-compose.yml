@@ -13,8 +13,7 @@ services:
       NEXTCLOUD_STARTUP_APPS: files contacts calendar deck -photos -memories -notes -activity -tasks
       NEXTCLOUD_ADDITIONAL_APKS: imagemagick exiftool
       NEXTCLOUD_ADDITIONAL_PHP_EXTENSIONS: imagick
-      # this is used for memories and hardware transcoding
-      NEXTCLOUD_ENABLE_DRI_DEVICE: true
+      NEXTCLOUD_DATADIR: "/mnt/truenas/nextcloud/datadir"
     volumes:
       - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
