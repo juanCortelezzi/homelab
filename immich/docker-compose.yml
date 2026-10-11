@@ -3,7 +3,7 @@ name: immich
 services:
   immich_server:
     container_name: immich_server
-    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION:-release}
+    image: ghcr.io/immich-app/immich-server:v3.3.1
     volumes:
       - /mnt/truenas/immich/immich_library:/data
       - /etc/localtime:/etc/localtime:ro
@@ -20,7 +20,7 @@ services:
 
   immich_machine_learning:
     container_name: immich_machine_learning
-    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
+    image: ghcr.io/immich-app/immich-machine-learning:v3.3.1
     restart: unless-stopped
     volumes:
       - ml_cache:/cache
@@ -31,10 +31,10 @@ services:
 
   redis:
     container_name: immich_redis
-    image: docker.io/valkey/valkey:9@sha256:3acc0687f2a2e1091fae6450d7842dd658c941338cf0a873ddd9e14b9e4ea4dd
+    image: docker.io/valkey/valkey:9@sha256:c123e3715db63d06d4ad6964884037aa0d5d4d703939b9929954112889708e1d
     restart: unless-stopped
     healthcheck:
-      test: redis-cli ping || exit 1
+      test: redis-cli ping | grep -q PONG || exit 1
     volumes:
       - immich_redis:/data
 
@@ -51,7 +51,6 @@ services:
       # Uncomment the DB_STORAGE_TYPE: 'HDD' var if your database isn't stored on SSDs
       # DB_STORAGE_TYPE: 'HDD'
     volumes:
-      # Do not edit the next line. If you want to change the database storage location on your system, edit the value of DB_DATA_LOCATION in the .env file
       - immich_database:/var/lib/postgresql/data
 
 volumes:
