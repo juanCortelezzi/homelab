@@ -6,9 +6,9 @@ services:
     image: ghcr.io/pocket-id/pocket-id:v2.18.0
     restart: unless-stopped
     environment:
-      APP_URL: ${APP_URL:?Set APP_URL in your environment file}
+      APP_URL: https://auth.juanlabs.org
       ENCRYPTION_KEY: ${ENCRYPTION_KEY:?Set ENCRYPTION_KEY in your environment file}
-      TRUST_PROXY: "${TRUST_PROXY:-false}"
+      TRUST_PROXY: false
     ports:
       - 1411:1411
     volumes:
