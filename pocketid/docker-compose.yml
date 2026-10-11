@@ -1,0 +1,24 @@
+name: pocketid
+
+services:
+  pocket_id:
+    container_name: pocket_id
+    image: ghcr.io/pocket-id/pocket-id:v2.18.0
+    restart: unless-stopped
+    environment:
+      APP_URL: ${APP_URL:?Set APP_URL in your environment file}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:?Set ENCRYPTION_KEY in your environment file}
+      TRUST_PROXY: "${TRUST_PROXY:-false}"
+    ports:
+      - 1411:1411
+    volumes:
+      - pocketid_database:/app/data
+    healthcheck:
+      test: ["CMD", "/app/pocket-id", "healthcheck"]
+      interval: 1m30s
+      timeout: 5s
+      retries: 2
+      start_period: 10s
+
+volumes:
+  pocketid_database:

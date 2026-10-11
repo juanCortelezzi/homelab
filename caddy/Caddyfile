@@ -18,6 +18,11 @@ https://*.juanlabs.org:443 {
 		respond "testing route!"
 	}
 
+	@pocketid host auth.juanlabs.org
+	handle @pocketid {
+		reverse_proxy localhost:1411
+	}
+
 	@nextcloud host cloud.juanlabs.org
 	handle @nextcloud {
 		reverse_proxy localhost:11000
