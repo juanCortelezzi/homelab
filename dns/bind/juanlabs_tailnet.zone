@@ -1,8 +1,8 @@
 $TTL 1h
 $ORIGIN juanlabs.org.
 
-@   IN    SOA   ns.juanlabs.org.    changeme.juanlabs.org (
-  2026090601; serial
+@   IN    SOA   ns.juanlabs.org.    hostmaster.juanlabs.org. (
+  2026090602; serial
   12h; refresh
   15m; retry
   3w; expire

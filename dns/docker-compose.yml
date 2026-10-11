@@ -1,21 +1,12 @@
 services:
   bind9:
-    image: ubuntu/bind9@sha256:45d541e9688f2c9010d22a78200117b66ed2df31b78f3464876f7e6e15cfaf77
+    image: ubuntu/bind9:9.20-26.04@sha256:f1a2a62ba28272eccb9efab3ebd2ba910e70edd93dd3c51dd130ba349aa13175
     restart: unless-stopped
     container_name: bind9
     ports:
       - 53:53/tcp
       - 53:53/udp
     environment:
-      - BIND9_USER=root
       - TZ=Pacific/Auckland
     volumes:
-      - ./bind:/etc/bind
-      - bind9_cache:/var/cache/bind
-      - bind9_records:/var/lib/bind
-
-volumes:
-  bind9_cache:
-    name: bind9_cache
-  bind9_records:
-    name: bind9_records
+      - ./bind:/etc/bind:ro
