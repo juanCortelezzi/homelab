@@ -7,7 +7,6 @@ services:
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_config:/config
-      - caddy_certs:/certs
       - caddy_data:/data
     env_file:
       - .env
@@ -15,7 +14,5 @@ services:
 volumes:
   caddy_config:
     name: caddy_config
-  caddy_certs:
-    name: caddy_certs
   caddy_data:
     name: caddy_data
