@@ -9,7 +9,6 @@ services:
       DOCKER_API_VERSION: 1.44
       APACHE_PORT: 11000
       APACHE_IP_BINDING: 127.0.0.1
-      # - NEXTCLOUD_STARTUP_APPS: "files contacts calendar deck -photos -memories -notes -activity -tasks"
       NEXTCLOUD_STARTUP_APPS: files contacts calendar deck -photos -memories -notes -activity -tasks
       NEXTCLOUD_ADDITIONAL_APKS: imagemagick exiftool
       NEXTCLOUD_ADDITIONAL_PHP_EXTENSIONS: imagick
